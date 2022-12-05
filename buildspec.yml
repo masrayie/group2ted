@@ -7,8 +7,6 @@ phases:
   pre_build:
     commands:
       - echo Entering pre_build phase...
-      - "echo Maven Version:"
-      - mvnw --version
   build:
     commands:
       - echo Entering build phase...
