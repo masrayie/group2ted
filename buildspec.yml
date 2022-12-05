@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+      commands:
+        - echo Entering Install Phase..
+    pre_build:
+      commands:
+        - echo Entering pre_build phase..
+        - "echo Maven Version:"
+        - sh mvnw --version
+    build:
+      commands:
+        - echo Entering build phase
+        - echo Build started on `date`
+        - ./mvnw clean install
+    post_build:
+      commands:
+        - echo Build completed on `date`
+artifacts:
+  type: zip
+  files:
+    - application.jar
