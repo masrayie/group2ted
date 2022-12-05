@@ -4,6 +4,8 @@ phases:
   install:
     commands:
       - echo Entering Install Phase...
+    runtime-versions:
+      java: corretto11
   pre_build:
     commands:
       - echo Entering pre_build phase...
