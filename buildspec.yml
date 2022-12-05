@@ -17,6 +17,4 @@ phases:
       - echo Build completed on `date`
 artifacts:
   type: zip
-  files:
-    - /BuildArtif
-  name: application.jar
+  name: application
