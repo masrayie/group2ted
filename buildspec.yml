@@ -2,6 +2,8 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      java: corretto8
     commands:
       - echo Entering Install Phase...
   pre_build:
@@ -15,6 +17,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - mvn package
 artifacts:
   type: zip
   name: application
