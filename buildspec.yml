@@ -11,7 +11,7 @@ phases:
     commands:
       - echo Entering build phase...
       - echo Build started on `date`
-      - mvn exec:java -Dexec.classpathScope=test  -Dexec.mainClass=io.cucumber.core.cli.Main  -Dexec.args="src/test/resources"
+      - mvn test
   post_build:
     commands:
       - echo Build completed on `date`
