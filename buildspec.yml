@@ -2,20 +2,31 @@ version: 0.2
 
 phases:
   install:
-    commands:
-      - echo Entering Install Phase...
+    runtime-versions:
+      java: corretto17
   pre_build:
     commands:
-      - echo Entering pre_build Phase...
+      - echo Nothing to do in the pre_build phase...
   build:
     commands:
-      - echo Entering build phase...
       - echo Build started on `date`
-      - mvn test
+      - mvn install 
   post_build:
     commands:
       - echo Build completed on `date`
       - mvn package
+      - echo Running tests for surefire junit
+      - mvn test -f surefire/pom.xml -fn
+reports:
+ group2-bdd-new:
+   files:
+     - '**/*'
+   base-directory: 'target/surefire-reports/'
+reports:
+  group2-bdd-new:
+    files:
+      - "target/surefire-reports/*.xml"
+    file-format: "JUNITXML"
 artifacts:
   files:
-  - '**/*'
+    - '**/*'
